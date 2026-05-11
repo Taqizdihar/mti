@@ -2,23 +2,23 @@ export const portfolioData = {
   profile: {
     name: "Muhammad Taqi Izdihar",
     tagline: "Welcome to M. Taqi Izdihar's Official Landing Page",
-    position: "Engineering Innovation & Strategic Design",
-    location: "City, Country",
+    position: "Undergraduate Student",
+    location: "Bandung, Indonesia",
     profileImage: "/assets/about-me/profile.jpg",
     details: {
-      birth: "Your Date & Place",
-      age: "XX",
+      birth: "28 October 2005, West Java, Indonesia",
+      age: "20",
       maritalStatus: "Single",
-      motto: "Your professional motto here"
+      motto: "Be Patient & Be Grateful Always"
     }
   },
   socials: [
-    { platform: "LinkedIn", url: "#", icon: "Linkedin" },
-    { platform: "YouTube", url: "#", icon: "Youtube" },
-    { platform: "Instagram", url: "#", icon: "Instagram" },
-    { platform: "TikTok", url: "#", icon: "Music2" },
-    { platform: "Facebook", url: "#", icon: "Facebook" },
-    { platform: "GitHub", url: "#", icon: "Github" }
+    { platform: "LinkedIn", url: "https://www.linkedin.com/in/taqizdihar", icon: "Linkedin" },
+    { platform: "YouTube", url: "https://youtube.com/@taqizdihary?si=IRWcOQjrIpp197Yp", icon: "Youtube" },
+    { platform: "Instagram", url: "https://www.instagram.com/taqizdihar/?utm_source=ig_web_button_share_sheet", icon: "Instagram" },
+    { platform: "TikTok", url: "https://www.tiktok.com/@m.taqizdihar?is_from_webapp=1&sender_device=pc", icon: "Music2" },
+    { platform: "Facebook", url: "https://www.facebook.com/profile.php?id=61587185312942", icon: "Facebook" },
+    { platform: "GitHub", url: "https://github.com/Taqizdihar", icon: "Github" }
   ],
   aboutMe: {
     bio: "I am a results-driven professional specializing in the intersection of technical engineering and high-impact digital strategy...",
