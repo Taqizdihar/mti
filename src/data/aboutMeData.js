@@ -23,17 +23,17 @@ export const socials = [
 
 export const aboutMe = {
   bioPhoto: "/assets/about-me/Profile-1.jpg",
-  bio: "I am a results-driven professional specializing in the intersection of technical engineering and high-impact digital strategy...",
-  cvLink: "#",
+  bio: "Hello. My name is Muhammad Taqi Izdihar, often referred to as Taqi or Taqizdihar. I was born on 28 October 2005, in Bandung, West Java, Indonesia. I'm a multimedia and computer technology enthusiast with some organizational experience in my vocational high school and university. My motto is \"Be grateful and be patient always.\"",
+  cvLink: "https://drive.google.com/uc?export=download&id=1rfOfGJbxAQntDzmLqat_Qx_sWGpHmmTd",
   logos: ["/assets/about-me/logo-v1.png", "/assets/about-me/logo-v2.png"],
   education: [
     { 
-      institution: "University Name", 
+      institution: "Telkom University", 
       institutionLogo: "/assets/about-me/Profile-1.jpg", 
-      degree: "Your Degree", 
-      years: "20XX - 20XX", 
-      grade: "GPA: 3.8",
-      description: "Brief description" 
+      degree: "Associate's Degree, Information Systems", 
+      years: "2024 - 2027", 
+      grade: "GPA: 3.95",
+      description: "Enrolled as a student in the Information Systems study program from the OPES scholarship." 
     }
   ]
 };
