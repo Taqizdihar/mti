@@ -1,5 +1,5 @@
 import React from 'react';
-import { portfolioData } from '@data';
+import { achievements } from '@data/achievementsData';
 import { Award, Star } from 'lucide-react';
 
 const Achievements = () => {
@@ -10,7 +10,7 @@ const Achievements = () => {
         <div className="w-20 h-1 bg-white/30 rounded-full mb-6" />
 
         <div className="space-y-4">
-          {portfolioData.achievements.map((achievement, index) => (
+          {achievements.map((achievement, index) => (
             <div key={index} className="glass p-6 rounded-3xl relative overflow-hidden group">
               <div className="absolute right-[-20px] top-[-20px] text-white/5 rotate-12 group-hover:scale-110 transition-transform">
                 <Award size={120} />

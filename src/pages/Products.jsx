@@ -1,5 +1,5 @@
 import React from 'react';
-import { portfolioData } from '@data';
+import { products } from '@data/productsData';
 import { ShoppingBag, ExternalLink } from 'lucide-react';
 
 const Products = () => {
@@ -10,7 +10,7 @@ const Products = () => {
         <div className="w-20 h-1 bg-white/30 rounded-full mb-6" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {portfolioData.products.map((product, index) => (
+          {products.map((product, index) => (
             <div key={index} className="glass p-6 rounded-3xl group hover:bg-white/10 transition-all duration-300">
               <div className="flex justify-between items-start mb-4">
                 <div className="p-4 bg-white/10 rounded-2xl">

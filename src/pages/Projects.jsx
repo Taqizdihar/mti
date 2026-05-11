@@ -1,5 +1,5 @@
 import React from 'react';
-import { portfolioData } from '@data';
+import { projects } from '@data/projectsData';
 import { Code, ExternalLink } from 'lucide-react';
 
 const Projects = () => {
@@ -10,7 +10,7 @@ const Projects = () => {
         <div className="w-20 h-1 bg-white/30 rounded-full mb-6" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {portfolioData.projects.map((project, index) => (
+          {projects.map((project, index) => (
             <div key={index} className="glass rounded-3xl overflow-hidden group">
               <div className="h-48 bg-white/5 relative overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">

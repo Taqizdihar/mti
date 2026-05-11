@@ -66,7 +66,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@assets': path.resolve(__dirname, './assets'),
-      '@data': path.resolve(__dirname, './portfolioData.js'),
+      '@data': path.resolve(__dirname, './src/data'),
     },
   },
   build: {

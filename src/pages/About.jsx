@@ -1,9 +1,8 @@
 import React from 'react';
-import { portfolioData } from '@data';
+import { profile, aboutMe } from '@data/aboutMeData';
 import { User, Calendar, MapPin, Briefcase, Heart, Info, Download, GraduationCap } from 'lucide-react';
 
 const About = () => {
-  const { profile, aboutMe } = portfolioData;
 
   const InfoCard = ({ icon: Icon, label, value }) => (
     <div className="glass p-4 rounded-2xl flex items-center gap-4 transition-transform hover:scale-[1.02] duration-300">

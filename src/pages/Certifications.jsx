@@ -1,5 +1,5 @@
 import React from 'react';
-import { portfolioData } from '@data';
+import { certifications } from '@data/certificationsData';
 import { GraduationCap, Award } from 'lucide-react';
 
 const Certifications = () => {
@@ -10,7 +10,7 @@ const Certifications = () => {
         <div className="w-20 h-1 bg-white/30 rounded-full mb-6" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {portfolioData.certifications.map((cert, index) => (
+          {certifications.map((cert, index) => (
             <div key={index} className="glass p-6 rounded-3xl flex items-start gap-5">
               <div className="p-4 bg-white/10 rounded-2xl shrink-0">
                 <GraduationCap size={28} />

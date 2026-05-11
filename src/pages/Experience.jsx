@@ -1,5 +1,5 @@
 import React from 'react';
-import { portfolioData } from '@data';
+import { experience } from '@data/experienceData';
 import { Briefcase, Calendar } from 'lucide-react';
 
 const Experience = () => {
@@ -10,7 +10,7 @@ const Experience = () => {
         <div className="w-20 h-1 bg-white/30 rounded-full mb-6" />
 
         <div className="space-y-6">
-          {portfolioData.experience.map((exp, index) => (
+          {experience.map((exp, index) => (
             <div key={index} className="relative pl-8 border-l border-white/20 pb-8 last:pb-0">
               <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-white glass shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
               <div className="glass p-6 rounded-3xl">

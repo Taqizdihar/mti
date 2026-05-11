@@ -1,5 +1,5 @@
 import React from 'react';
-import { portfolioData } from '@data';
+import { organizations } from '@data/organizationsData';
 import { Users, ShieldCheck } from 'lucide-react';
 
 const Organizations = () => {
@@ -10,7 +10,7 @@ const Organizations = () => {
         <div className="w-20 h-1 bg-white/30 rounded-full mb-6" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {portfolioData.organizations.map((org, index) => (
+          {organizations.map((org, index) => (
             <div key={index} className="glass p-8 rounded-3xl group">
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-4 bg-white/10 rounded-2xl group-hover:bg-white/20 transition-colors">
