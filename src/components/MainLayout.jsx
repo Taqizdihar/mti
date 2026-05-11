@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { 
   User, Briefcase, Code, Award, Target, Users, Heart, GraduationCap,
-  Globe, Github, Linkedin, Twitter, Instagram, Menu, X
+  Globe, Github, Linkedin, Twitter, Instagram, Youtube, Music2, Facebook, Menu, X
 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
@@ -21,8 +21,9 @@ const NavItem = ({ to, icon: Icon, label }) => (
 
 const MainLayout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const location = useLocation();
 
-  const navLinks = [
+  const navLinks = React.useMemo(() => [
     { to: "/", icon: User, label: "About Me" },
     { to: "/products", icon: Target, label: "Products" },
     { to: "/experience", icon: Briefcase, label: "Experience" },
@@ -31,16 +32,31 @@ const MainLayout = () => {
     { to: "/achievements", icon: Award, label: "Achievements" },
     { to: "/organizations", icon: Users, label: "Organizations" },
     { to: "/hobbies", icon: Heart, label: "Hobbies" },
-  ];
+  ], []);
+
+  React.useEffect(() => {
+    const currentNav = navLinks.find(link => link.to === location.pathname);
+    if (currentNav) {
+      document.title = `MTI - ${currentNav.label}`;
+    } else {
+      document.title = 'MTI - Muhammad Taqi Izdihar';
+    }
+  }, [location.pathname, navLinks]);
+
 
   const SocialIcon = ({ name }) => {
-    switch(name) {
-      case 'Github': return <Github size={18} />;
-      case 'Linkedin': return <Linkedin size={18} />;
-      case 'Twitter': return <Twitter size={18} />;
-      case 'Instagram': return <Instagram size={18} />;
-      default: return <Globe size={18} />;
-    }
+    const icons = {
+      Github,
+      Linkedin,
+      Twitter,
+      Instagram,
+      Youtube,
+      Music2,
+      Facebook,
+      Globe
+    };
+    const Icon = icons[name] || Globe;
+    return <Icon size={18} />;
   };
 
   return (
