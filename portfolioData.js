@@ -4,7 +4,7 @@ export const portfolioData = {
     tagline: "Welcome to M. Taqi Izdihar's Official Landing Page",
     position: "Engineering Innovation & Strategic Design",
     location: "City, Country",
-    profileImage: "/assets/images/about-me/profile.jpg",
+    profileImage: "/assets/about-me/profile.jpg",
     details: {
       birth: "Your Date & Place",
       age: "XX",
@@ -22,7 +22,7 @@ export const portfolioData = {
   ],
   aboutMe: {
     bio: "I am a results-driven professional specializing in the intersection of technical engineering and high-impact digital strategy...",
-    logos: ["/assets/images/about-me/logo-v1.png", "/assets/images/about-me/logo-v2.png"],
+    logos: ["/assets/about-me/logo-v1.png", "/assets/about-me/logo-v2.png"],
     education: [
       { institution: "University Name", degree: "Your Degree", years: "20XX - 20XX", description: "Brief description" }
     ]

@@ -4,7 +4,7 @@ import {
   User, Briefcase, Code, Award, Target, Users, Heart, GraduationCap,
   Globe, Github, Linkedin, Twitter, Instagram, Youtube, Music2, Facebook, Menu, X
 } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
+import { portfolioData } from '@data';
 
 const NavItem = ({ to, icon: Icon, label }) => (
   <NavLink 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { portfolioData } from '../data/portfolioData';
+import { portfolioData } from '@data';
 import { User, Calendar, MapPin, Briefcase, Heart, Info } from 'lucide-react';
 
 const About = () => {

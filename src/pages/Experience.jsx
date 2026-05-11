@@ -1,5 +1,5 @@
 import React from 'react';
-import { portfolioData } from '../data/portfolioData';
+import { portfolioData } from '@data';
 import { Briefcase, Calendar } from 'lucide-react';
 
 const Experience = () => {
