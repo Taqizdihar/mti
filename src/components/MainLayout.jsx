@@ -66,7 +66,7 @@ const MainLayout = () => {
       {/* Sidebar - Desktop */}
       <aside className="hidden lg:flex flex-col w-64 glass m-4 rounded-3xl overflow-hidden shrink-0">
         <div className="p-6 text-center border-b border-white/10">
-          <div className="w-20 h-20 mx-auto rounded-full glass p-1 mb-3 overflow-hidden">
+          <div className="w-28 h-28 mx-auto rounded-full glass p-1 mb-4 overflow-hidden">
             <img 
               src={profile.profileImage} 
               alt={profile.name}
@@ -77,7 +77,7 @@ const MainLayout = () => {
           <p className="text-xs text-white/60 mt-1">{profile.tagline}</p>
         </div>
 
-        <nav className="flex-1 p-3 flex flex-col gap-1 overflow-y-auto scrollbar-hide">
+        <nav className="flex-1 p-3 flex flex-col justify-end pb-8 gap-1 overflow-y-auto scrollbar-hide">
           {navLinks.map((link) => (
             <NavItem key={link.to} {...link} />
           ))}
@@ -130,9 +130,6 @@ const MainLayout = () => {
                 {theme === 'dark' ? <Moon size={16} /> : <Sun size={16} />}
               </button>
             </div>
-            <span className="hidden sm:inline text-xs glass px-3 py-1 rounded-full border-white/10">
-              {profile.location}
-            </span>
           </div>
         </header>
 
