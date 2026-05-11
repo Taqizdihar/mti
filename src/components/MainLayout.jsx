@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { 
   User, Briefcase, Code, Award, Target, Users, Heart, GraduationCap,
-  Globe, Github, Linkedin, Twitter, Instagram, Youtube, Music2, Facebook, Menu, X
+  Globe, Github, Linkedin, Twitter, Instagram, Youtube, Music2, Facebook, Menu, X, Sun, Moon
 } from 'lucide-react';
 import { portfolioData } from '@data';
 
@@ -21,6 +21,8 @@ const NavItem = ({ to, icon: Icon, label }) => (
 
 const MainLayout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [language, setLanguage] = React.useState('EN');
+  const [theme, setTheme] = React.useState('dark');
   const location = useLocation();
 
   const navLinks = React.useMemo(() => [
@@ -119,7 +121,22 @@ const MainLayout = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="text-xs glass px-3 py-1 rounded-full border-white/10">
+            <div className="flex items-center gap-2 glass px-2 py-1 rounded-xl">
+              <button 
+                onClick={() => setLanguage(prev => prev === 'EN' ? 'IN' : 'EN')}
+                className="w-8 h-8 flex items-center justify-center text-xs font-bold hover:bg-white/10 rounded-lg transition-colors"
+              >
+                {language}
+              </button>
+              <div className="w-px h-4 bg-white/20" />
+              <button 
+                onClick={() => setTheme(prev => prev === 'dark' ? 'light' : 'dark')}
+                className="w-8 h-8 flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors"
+              >
+                {theme === 'dark' ? <Moon size={16} /> : <Sun size={16} />}
+              </button>
+            </div>
+            <span className="hidden sm:inline text-xs glass px-3 py-1 rounded-full border-white/10">
               {portfolioData.profile.location}
             </span>
           </div>
