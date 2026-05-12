@@ -3,7 +3,7 @@ export const profile = {
   tagline: "Welcome to M. Taqi Izdihar's Official Landing Page",
   position: "Undergraduate Student",
   location: "Bandung, Indonesia",
-  profileImage: "/assets/about-me/Profile-1.jpg",
+  profileImages: ["/assets/about-me/Profile-1.jpg", "/assets/about-me/profile2.jpg", "/assets/about-me/profile3.jpg"],
   details: {
     birth: "28 October 2005, West Java, Indonesia",
     age: "20",
@@ -34,6 +34,14 @@ export const aboutMe = {
       years: "2024 - 2027", 
       grade: "GPA: 3.95",
       description: "Enrolled as a student in the Information Systems study program from the OPES scholarship." 
+    },
+    { 
+      institution: "SMK Telkom Bandung", 
+      institutionLogo: "/assets/about-me/Profile-1.jpg", 
+      degree: "Vocational High School Diploma, Multimedia", 
+      years: "2022 - 2024", 
+      grade: "Grade: 91.91",
+      description: "Enrolled as a vocational high school student in the multimedia field of study, which includes the courses of graphic design, basic 3D modelling, photography, and videography." 
     }
   ]
 };

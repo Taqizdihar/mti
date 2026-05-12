@@ -9,6 +9,7 @@ import Certifications from './pages/Certifications';
 import Achievements from './pages/Achievements';
 import Organizations from './pages/Organizations';
 import Hobbies from './pages/Hobbies';
+import MediaKit from './pages/MediaKit';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="achievements" element={<Achievements />} />
           <Route path="organizations" element={<Organizations />} />
           <Route path="hobbies" element={<Hobbies />} />
+          <Route path="media-kit" element={<MediaKit />} />
         </Route>
       </Routes>
     </Router>

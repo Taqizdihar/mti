@@ -23,6 +23,8 @@ const MainLayout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [language, setLanguage] = React.useState('EN');
   const [theme, setTheme] = React.useState('dark');
+  const [rotation, setRotation] = React.useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
   const location = useLocation();
 
   const navLinks = React.useMemo(() => [
@@ -61,14 +63,27 @@ const MainLayout = () => {
     return <Icon size={18} />;
   };
 
+  const handleProfileClick = () => {
+    setRotation(prev => prev + 360);
+    setTimeout(() => {
+      setCurrentImageIndex(prev => 
+        (prev + 1) % (profile.profileImages?.length || 1)
+      );
+    }, 250); // Change image halfway through the 500ms transition
+  };
+
   return (
     <div className="flex h-screen overflow-hidden text-white">
       {/* Sidebar - Desktop */}
       <aside className="hidden lg:flex flex-col w-64 glass m-4 rounded-3xl overflow-hidden shrink-0">
         <div className="p-6 text-center border-b border-white/10">
-          <div className="w-28 h-28 mx-auto rounded-full glass p-1 mb-4 overflow-hidden">
+          <div 
+            className="w-28 h-28 mx-auto rounded-full glass p-1 mb-4 overflow-hidden cursor-pointer animate-pulse-idle transition-transform duration-500 ease-in-out"
+            style={{ transform: `perspective(600px) rotateY(${rotation}deg)` }}
+            onClick={handleProfileClick}
+          >
             <img 
-              src={profile.profileImage} 
+              src={profile.profileImages ? profile.profileImages[currentImageIndex] : profile.profileImage} 
               alt={profile.name}
               className="w-full h-full object-cover rounded-full"
             />
@@ -115,6 +130,12 @@ const MainLayout = () => {
           </div>
 
           <div className="flex items-center gap-4">
+            <NavLink 
+              to="/media-kit"
+              className="hidden lg:flex items-center gap-2 px-4 py-1.5 rounded-xl gradient-border-anim transition-transform hover:scale-105 shadow-lg"
+            >
+              Media Kit
+            </NavLink>
             <div className="flex items-center gap-2 glass px-2 py-1 rounded-xl">
               <button 
                 onClick={() => setLanguage(prev => prev === 'EN' ? 'IN' : 'EN')}
@@ -134,7 +155,7 @@ const MainLayout = () => {
         </header>
 
         {/* Dynamic Content */}
-        <div className="flex-1 overflow-y-auto p-4 scrollbar-hide">
+        <div className="flex-1 overflow-y-auto px-4 pt-12 pb-8 scrollbar-hide">
           <div className="pb-8">
             <Outlet />
           </div>
