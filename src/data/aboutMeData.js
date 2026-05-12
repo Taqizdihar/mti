@@ -31,7 +31,7 @@ export const aboutMe = {
   education: [
     { 
       institution: "Telkom University", 
-      institutionLogo: "/assets/about-me/Profile-1.jpg", 
+      institutionLogo: "/assets/about-me/Education-4.png", 
       degree: "Associate's Degree, Information Systems", 
       years: "2024 - 2027", 
       grade: "GPA: 3.95",
@@ -39,11 +39,25 @@ export const aboutMe = {
     },
     { 
       institution: "SMK Telkom Bandung", 
-      institutionLogo: "/assets/about-me/Profile-1.jpg", 
+      institutionLogo: "/assets/about-me/Education-3.png", 
       degree: "Vocational High School Diploma, Multimedia", 
       years: "2022 - 2024", 
       grade: "Grade: 91.91",
       description: "Enrolled as a vocational high school student in the multimedia field of study, which includes the courses of graphic design, basic 3D modelling, photography, and videography." 
-    }
+    },
+    { 
+      institution: "SMP Alam Bandung", 
+      institutionLogo: "/assets/about-me/Education-2.png",
+      degree: "Middle School", 
+      years: "2019 - 2022", 
+      description: "Learning in the nature and camping" 
+    },
+    { 
+      institution: "Sekolah Alam Bandung", 
+      institutionLogo: "/assets/about-me/Education-1.jpg",
+      degree: "Primary School", 
+      years: "2013 - 2019", 
+      description: "Learning in the nature and camping" 
+    },
   ]
 };
