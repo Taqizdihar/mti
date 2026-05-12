@@ -3,11 +3,13 @@ export const profile = {
   tagline: "Welcome to M. Taqi Izdihar's Official Landing Page",
   position: "Undergraduate Student",
   location: "Bandung, Indonesia",
-  profileImages: ["/assets/about-me/Profile-1.jpg", "/assets/about-me/Profile-2.jpg", "/assets/about-me/Profile-3.jpeg"],
+  profileImages: ["/assets/about-me/Profile-1.jpg", "/assets/about-me/Profile-2.jpg", "/assets/about-me/Profile-3.jpeg", "/assets/about-me/Profile-4.png", "/assets/about-me/Profile-5.jpg", "/assets/about-me/Profile-6.jpeg"],
   details: {
     birth: "28 October 2005, West Java, Indonesia",
     age: "20",
     maritalStatus: "Single",
+    mbtiType: "INFJ",
+    languages: "Indonesia & English",
     motto: "Be Patient & Be Grateful Always"
   }
 };
@@ -25,7 +27,7 @@ export const aboutMe = {
   bioPhoto: "/assets/about-me/Profile-1.jpg",
   bio: "Hello. My name is Muhammad Taqi Izdihar, often referred to as Taqi or Taqizdihar. I was born on 28 October 2005, in Bandung, West Java, Indonesia. I'm a multimedia and computer technology enthusiast with some organizational experience in my vocational high school and university. My motto is \"Be grateful and be patient always.\"",
   cvLink: "https://drive.google.com/uc?export=download&id=1rfOfGJbxAQntDzmLqat_Qx_sWGpHmmTd",
-  logos: ["/assets/about-me/logo-v1.png", "/assets/about-me/logo-v2.png"],
+  personalLogos: ["/assets/about-me/logo-v1.png", "/assets/about-me/logo-v2.png"],
   education: [
     { 
       institution: "Telkom University", 

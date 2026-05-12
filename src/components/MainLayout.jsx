@@ -24,7 +24,9 @@ const MainLayout = () => {
   const [language, setLanguage] = React.useState('EN');
   const [theme, setTheme] = React.useState('dark');
   const [rotation, setRotation] = React.useState(0);
-  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+  const [frontIndex, setFrontIndex] = React.useState(0);
+  const [backIndex, setBackIndex] = React.useState(1);
+  const [isFlipped, setIsFlipped] = React.useState(false);
   const location = useLocation();
 
   const navLinks = React.useMemo(() => [
@@ -64,12 +66,17 @@ const MainLayout = () => {
   };
 
   const handleProfileClick = () => {
-    setRotation(prev => prev + 360);
+    const imagesCount = profile.profileImages?.length || 1;
+    setRotation(prev => prev + 180);
+    setIsFlipped(!isFlipped);
+    
     setTimeout(() => {
-      setCurrentImageIndex(prev => 
-        (prev + 1) % (profile.profileImages?.length || 1)
-      );
-    }, 250); // Change image halfway through the 500ms transition
+      if (!isFlipped) {
+        setFrontIndex((backIndex + 1) % imagesCount);
+      } else {
+        setBackIndex((frontIndex + 1) % imagesCount);
+      }
+    }, 500); // Wait for transition to complete
   };
 
   return (
@@ -78,15 +85,31 @@ const MainLayout = () => {
       <aside className="hidden lg:flex flex-col w-64 glass m-4 rounded-3xl overflow-hidden shrink-0">
         <div className="p-6 text-center border-b border-white/10">
           <div 
-            className="w-28 h-28 mx-auto rounded-full glass p-1 mb-4 overflow-hidden cursor-pointer animate-pulse-idle transition-transform duration-500 ease-in-out"
-            style={{ transform: `perspective(600px) rotateY(${rotation}deg)` }}
+            className="w-28 h-28 mx-auto cursor-pointer animate-pulse-idle mb-4"
             onClick={handleProfileClick}
+            style={{ perspective: '1000px' }}
           >
-            <img 
-              src={profile.profileImages ? profile.profileImages[currentImageIndex] : profile.profileImage} 
-              alt={profile.name}
-              className="w-full h-full object-cover rounded-full"
-            />
+            <div 
+              className="w-full h-full relative transition-transform duration-500 ease-in-out"
+              style={{ transformStyle: 'preserve-3d', transform: `rotateY(${rotation}deg)` }}
+            >
+              {/* Front Face */}
+              <div className="absolute inset-0 w-full h-full rounded-full glass p-1 overflow-hidden" style={{ backfaceVisibility: 'hidden' }}>
+                <img 
+                  src={profile.profileImages ? profile.profileImages[frontIndex] : profile.profileImage} 
+                  alt={profile.name}
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
+              {/* Back Face */}
+              <div className="absolute inset-0 w-full h-full rounded-full glass p-1 overflow-hidden" style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
+                <img 
+                  src={profile.profileImages ? profile.profileImages[backIndex] : profile.profileImage} 
+                  alt={profile.name}
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
+            </div>
           </div>
           <h1 className="text-lg font-bold leading-tight">{profile.name}</h1>
           <p className="text-xs text-white/60 mt-1">{profile.tagline}</p>

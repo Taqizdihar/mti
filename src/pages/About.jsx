@@ -1,8 +1,26 @@
 import React from 'react';
 import { profile, aboutMe } from '@data/aboutMeData';
-import { User, Calendar, MapPin, Briefcase, Heart, Info, Download, GraduationCap } from 'lucide-react';
+import { User, Calendar, MapPin, Briefcase, Heart, Info, Download, GraduationCap, Brain, Globe } from 'lucide-react';
 
 const About = () => {
+  const [currentLogoIndex, setCurrentLogoIndex] = React.useState(0);
+  const [isLogoFading, setIsLogoFading] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!aboutMe.personalLogos || aboutMe.personalLogos.length <= 1) return;
+    const timer = setInterval(() => {
+      handleNextLogo();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [aboutMe.personalLogos, currentLogoIndex]);
+
+  const handleNextLogo = () => {
+    setIsLogoFading(true);
+    setTimeout(() => {
+      setCurrentLogoIndex((prev) => (prev + 1) % (aboutMe.personalLogos?.length || 1));
+      setIsLogoFading(false);
+    }, 300);
+  };
 
   const InfoCard = ({ icon: Icon, label, value }) => (
     <div className="glass p-4 rounded-2xl flex items-center gap-4 transition-transform hover:scale-[1.02] duration-300">
@@ -25,13 +43,29 @@ const About = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
           {/* Bio Card */}
-          <div className="lg:col-span-2 glass p-8 rounded-3xl relative overflow-hidden flex flex-col md:flex-row gap-8 items-center">
-            {aboutMe.bioPhoto && (
-              <div className="shrink-0 w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden glass p-2">
-                <img src={aboutMe.bioPhoto} alt="Hero" className="w-full h-full object-cover rounded-xl" />
-              </div>
-            )}
-            <div className="flex-1 text-center md:text-left">
+          <div className="lg:col-span-2 glass p-8 rounded-3xl relative overflow-hidden flex flex-col md:flex-row gap-8 items-start">
+            <div className="shrink-0 w-48 md:w-56 flex flex-col gap-4">
+              {aboutMe.bioPhoto && (
+                <div className="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden glass p-2 mx-auto md:mx-0">
+                  <img src={aboutMe.bioPhoto} alt="Hero" className="w-full h-full object-cover rounded-xl" />
+                </div>
+              )}
+              {/* Dynamic Logo Section */}
+              {aboutMe.personalLogos && aboutMe.personalLogos.length > 0 && (
+                <div 
+                  className="w-full aspect-[1600/1004] glass rounded-2xl p-4 flex items-center justify-center cursor-pointer transition-transform hover:scale-[1.02] duration-300" 
+                  onClick={handleNextLogo}
+                >
+                  <img 
+                    src={aboutMe.personalLogos[currentLogoIndex]} 
+                    alt="Brand logo" 
+                    className={`max-w-full max-h-full object-contain transition-opacity duration-300 ${isLogoFading ? 'opacity-0' : 'opacity-100'}`} 
+                  />
+                </div>
+              )}
+            </div>
+            
+            <div className="flex-1 text-center md:text-left mt-2 md:mt-0">
               <h3 className="text-2xl font-bold mb-4">
                 Professional Bio
               </h3>
@@ -56,7 +90,7 @@ const About = () => {
           <div className="space-y-4">
             {[
               { icon: User, label: "Full Name", value: profile.name },
-              { icon: Calendar, label: "Birthday", value: profile.details?.birth },
+              { icon: Briefcase, label: "Position", value: profile.position },
               { icon: MapPin, label: "Location", value: profile.location }
             ].filter(item => item.value).map((item, index) => (
               <InfoCard key={index} icon={item.icon} label={item.label} value={item.value} />
@@ -64,26 +98,16 @@ const About = () => {
           </div>
         </div>
 
-        {/* Brand Identity / Logo Slider */}
-        {aboutMe.logos && aboutMe.logos.length > 0 && (
-          <div className="glass p-6 rounded-3xl mb-8">
-            <h3 className="text-sm font-semibold text-white/50 uppercase tracking-widest mb-6">Brand Identity</h3>
-            <div className="flex overflow-x-auto gap-8 pb-4 scrollbar-hide">
-              {aboutMe.logos.map((logo, index) => (
-                <div key={index} className="flex-shrink-0 w-48 h-24 glass rounded-2xl p-4 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
-                  <img src={logo} alt={`Brand logo ${index + 1}`} className="max-w-full max-h-full object-contain" />
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+
 
         {/* Extended Details Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           {[
-            { icon: Briefcase, label: "Position", value: profile.position },
+            { icon: Calendar, label: "Birthday", value: profile.details?.birth },
             { icon: Info, label: "Age", value: profile.details?.age },
-            { icon: Heart, label: "Marital Status", value: profile.details?.maritalStatus }
+            { icon: Heart, label: "Marital Status", value: profile.details?.maritalStatus },
+            { icon: Brain, label: "MBTI Type", value: profile.details?.mbtiType },
+            { icon: Globe, label: "Languages", value: profile.details?.languages }
           ].filter(item => item.value).map((item, index) => (
             <InfoCard key={index} icon={item.icon} label={item.label} value={item.value} />
           ))}
