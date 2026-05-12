@@ -25,7 +25,7 @@ export const socials = [
 
 export const aboutMe = {
   bioPhoto: "/assets/about-me/Profile-1.jpg",
-  bio: "Hello. My name is Muhammad Taqi Izdihar, often referred to as Taqi or Taqizdihar. I was born on 28 October 2005, in Bandung, West Java, Indonesia. I'm a multimedia and computer technology enthusiast with some organizational experience in my vocational high school and university. My motto is \"Be grateful and be patient always.\"",
+  bio: "Hello. My name is Muhammad Taqi Izdihar, often referred to as Taqi or Taqizdihar. I was born on 28 October 2005, in Bandung, West Java, Indonesia. I'm a multimedia and computer technology enthusiast with some organizational experience in my vocational high school and university. My motto is \"Be patient and be grateful always.\"",
   cvLink: "https://drive.google.com/uc?export=download&id=1rfOfGJbxAQntDzmLqat_Qx_sWGpHmmTd",
   personalLogos: ["/assets/about-me/Logo-1.jpg", "/assets/about-me/Logo-2.jpg", "/assets/about-me/Logo-3.jpg", "/assets/about-me/Logo-4.jpg", "/assets/about-me/Logo-5.jpg", "/assets/about-me/Logo-6.jpg", "/assets/about-me/Logo-7.jpg",],
   education: [
@@ -54,7 +54,7 @@ export const aboutMe = {
     },
     { 
       institution: "Sekolah Alam Bandung", 
-      institutionLogo: "/assets/about-me/Education-1.jpg",
+      institutionLogo: "/assets/about-me/Education-1.png",
       degree: "Primary School", 
       years: "2013 - 2019", 
       description: "Learning in the nature and camping" 
