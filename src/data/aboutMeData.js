@@ -3,7 +3,7 @@ export const profile = {
   tagline: "Welcome to M. Taqi Izdihar's Official Landing Page",
   position: "Undergraduate Student",
   location: "Bandung, Indonesia",
-  profileImages: ["/assets/about-me/Profile-1.jpg", "/assets/about-me/Profile-2.jpg", "/assets/about-me/Profile-3.jpg"],
+  profileImages: ["/assets/about-me/Profile-1.jpg", "/assets/about-me/Profile-2.jpg", "/assets/about-me/Profile-3.jpeg"],
   details: {
     birth: "28 October 2005, West Java, Indonesia",
     age: "20",
