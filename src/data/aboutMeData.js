@@ -1,15 +1,16 @@
 export const profile = {
   name: "Muhammad Taqi Izdihar",
   tagline: "Welcome to M. Taqi Izdihar's Official Landing Page",
-  position: "Undergraduate Student",
+  birth: "28 October 2005, West Java, Indonesia",
   location: "Bandung, Indonesia",
   profileImages: ["/assets/about-me/Profile-1.jpg", "/assets/about-me/Profile-2.jpg", "/assets/about-me/Profile-3.jpeg", "/assets/about-me/Profile-4.png", "/assets/about-me/Profile-5.jpg", "/assets/about-me/Profile-6.jpeg"],
   details: {
-    birth: "28 October 2005, West Java, Indonesia",
+    position: "Undergraduate Student",
     age: "20",
     maritalStatus: "Single",
     mbtiType: "INFJ",
     languages: "Indonesia & English",
+    nationality: "Indonesian",
     motto: "Be Patient & Be Grateful Always"
   }
 };
@@ -50,14 +51,14 @@ export const aboutMe = {
       institutionLogo: "/assets/about-me/Education-2.png",
       degree: "Middle School", 
       years: "2019 - 2022", 
-      description: "Learning in the nature and camping" 
+      description: "Learning in the nature, camping, field trips, and internship introduction" 
     },
     { 
       institution: "Sekolah Alam Bandung", 
       institutionLogo: "/assets/about-me/Education-1.png",
       degree: "Primary School", 
       years: "2013 - 2019", 
-      description: "Learning in the nature and camping" 
+      description: "Learning in the nature with friends" 
     },
   ]
 };

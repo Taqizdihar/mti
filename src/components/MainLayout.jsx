@@ -85,7 +85,7 @@ const MainLayout = () => {
       <aside className="hidden lg:flex flex-col w-64 glass m-4 rounded-3xl overflow-hidden shrink-0">
         <div className="p-6 text-center border-b border-white/10">
           <div 
-            className="w-28 h-28 mx-auto cursor-pointer animate-pulse-idle mb-4"
+            className="w-28 h-28 mx-auto cursor-pointer animate-pulse-idle mb-4 rounded-full"
             onClick={handleProfileClick}
             style={{ perspective: '1000px' }}
           >
@@ -115,7 +115,7 @@ const MainLayout = () => {
           <p className="text-xs text-white/60 mt-1">{profile.tagline}</p>
         </div>
 
-        <nav className="flex-1 p-3 flex flex-col justify-end pb-8 gap-1 overflow-y-auto scrollbar-hide">
+        <nav className="flex-1 p-3 flex flex-col justify-start pb-8 gap-1 overflow-y-auto scrollbar-hide">
           {navLinks.map((link) => (
             <NavItem key={link.to} {...link} />
           ))}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { profile, aboutMe } from '@data/aboutMeData';
-import { User, Calendar, MapPin, Briefcase, Heart, Info, Download, GraduationCap, Brain, Globe } from 'lucide-react';
+import { User, Calendar, MapPin, Briefcase, Heart, Info, Download, GraduationCap, Brain, Globe, Flag, Quote } from 'lucide-react';
 
 const About = () => {
   const [currentLogoIndex, setCurrentLogoIndex] = React.useState(0);
@@ -22,14 +22,16 @@ const About = () => {
     }, 300);
   };
 
-  const InfoCard = ({ icon: Icon, label, value }) => (
+  const InfoCard = ({ icon: Icon, label, value, isItalic }) => (
     <div className="glass p-4 rounded-2xl flex items-center gap-4 transition-transform hover:scale-[1.02] duration-300">
       <div className="p-3 bg-white/10 rounded-xl">
         <Icon size={20} className="text-white" />
       </div>
       <div>
         <p className="text-xs text-white/50 uppercase tracking-wider">{label}</p>
-        <p className="font-semibold">{value}</p>
+        <p className={`font-semibold ${isItalic ? 'italic text-white/90' : ''}`}>
+          {isItalic ? `“${value}”` : value}
+        </p>
       </div>
     </div>
   );
@@ -90,10 +92,10 @@ const About = () => {
           <div className="space-y-4">
             {[
               { icon: User, label: "Full Name", value: profile.name },
-              { icon: Briefcase, label: "Position", value: profile.position },
-              { icon: MapPin, label: "Location", value: profile.location }
+              { icon: MapPin, label: "Location", value: profile.location },
+              { icon: Quote, label: "Motto", value: profile.details?.motto, isItalic: true }
             ].filter(item => item.value).map((item, index) => (
-              <InfoCard key={index} icon={item.icon} label={item.label} value={item.value} />
+              <InfoCard key={index} icon={item.icon} label={item.label} value={item.value} isItalic={item.isItalic} />
             ))}
           </div>
         </div>
@@ -103,21 +105,18 @@ const About = () => {
         {/* Extended Details Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           {[
-            { icon: Calendar, label: "Birthday", value: profile.details?.birth },
+            { icon: Briefcase, label: "Position", value: profile.details?.position },
             { icon: Info, label: "Age", value: profile.details?.age },
             { icon: Heart, label: "Marital Status", value: profile.details?.maritalStatus },
             { icon: Brain, label: "MBTI Type", value: profile.details?.mbtiType },
-            { icon: Globe, label: "Languages", value: profile.details?.languages }
+            { icon: Globe, label: "Languages", value: profile.details?.languages },
+            { icon: Flag, label: "Nationality", value: profile.details?.nationality }
           ].filter(item => item.value).map((item, index) => (
             <InfoCard key={index} icon={item.icon} label={item.label} value={item.value} />
           ))}
         </div>
 
-        {profile.details?.motto && (
-          <div className="glass p-6 rounded-3xl mb-8">
-            <p className="text-center italic text-white/70">"{profile.details.motto}"</p>
-          </div>
-        )}
+
 
         {/* Education Section */}
         {aboutMe.education && aboutMe.education.length > 0 && (
