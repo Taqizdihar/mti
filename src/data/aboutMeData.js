@@ -9,7 +9,7 @@ export const profile = {
     age: "20",
     maritalStatus: "Single",
     mbtiType: "INFJ",
-    languages: "Indonesia & English",
+    languages: "Indonesian & English",
     nationality: "Indonesian",
     motto: "Be Patient & Be Grateful Always"
   }
